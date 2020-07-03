@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link, withRouter } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { ReactComponent as Logo } from '../../assets/original.svg'
 
 import './Header.styles.scss'
