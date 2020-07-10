@@ -38,15 +38,16 @@ const InitialState = [
 ]
 
 const Directory = () => {
-  const [sections, setSections] = useState(InitialState)
+                          // eslint-disable-next-line
+                          const [sections, setSections] = useState(InitialState)
 
-  return (
-    <div className='directory-menu'>
-      {sections.map(({ id, ...otherSectionProps }) => (
-        <MenuItem key={id} {...otherSectionProps} />
-      ))}
-    </div>
-  )
-}
+                          return (
+                            <div className='directory-menu'>
+                              {sections.map(({ id, ...otherSectionProps }) => (
+                                <MenuItem key={id} {...otherSectionProps} />
+                              ))}
+                            </div>
+                          )
+                        }
 
 export default Directory

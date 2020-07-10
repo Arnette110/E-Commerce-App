@@ -6,16 +6,22 @@ import CollectionPreview from '../../components/CollectionPreview/CollectionPrev
 
 
 const ShopPage = () => {
-  const [collections, setCollections] = useState(SHOP_DATA)
+                         // eslint-disable-next-line
+                         const [collections, setCollections] = useState(
+                           SHOP_DATA,
+                         )
 
-  return (
-      <div className='shop-page'>
-      {
-          collections.map(({ id, ...otherCollectionProps}) => (
-              <CollectionPreview key={id} {...otherCollectionProps} />
-          ))
-      }
-      </div>
-      )
-}
+                         return (
+                           <div className='shop-page'>
+                             {collections.map(
+                               ({ id, ...otherCollectionProps }) => (
+                                 <CollectionPreview
+                                   key={id}
+                                   {...otherCollectionProps}
+                                 />
+                               ),
+                             )}
+                           </div>
+                         )
+                       }
 export default ShopPage
