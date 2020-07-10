@@ -5,7 +5,7 @@ import Homepage from './pages/homepage/homepage.component'
 import ShopPage from './pages/shop/shop.component'
 import SignInAndSignupPage from './pages/sign-in-and-sign-up/sign-in-and-sign-up.component'
 import Header from './components/Header/Header.component'
-import { auth } from './firebase/firebase.utils'
+import { auth, createUserProfileDocument } from './firebase/firebase.utils'
 
 
 function App() {
@@ -16,14 +16,24 @@ function App() {
   useEffect(()=>{
     document.title = 'My e-commerce app'
     let unsubscribeFromAuth = null
-    unsubscribeFromAuth = auth.onAuthStateChanged(user => {
-      setCurrentUser({currentUser: user})
-      console.log(user)
+    unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
+      if(userAuth){
+        const userRef = createUserProfileDocument(userAuth)
+        ;
+        (await userRef).onSnapshot(snapShot => {
+          setCurrentUser(
+            { ...snapShot, id: snapShot.id, ...snapShot.data() }
+          )
+        })
+      }
     });
+    
     return () => {
       unsubscribeFromAuth()
     }
   },[])
+  
+  console.log(currentUser)
 
   
 
