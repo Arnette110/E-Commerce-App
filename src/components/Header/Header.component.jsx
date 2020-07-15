@@ -2,17 +2,21 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 
+
 import { ReactComponent as Logo } from '../../assets/original.svg'
 import CartIcon from '../CartIcon/CartIcon.component'
 import CartDropDown from '../CartDropDown/CartDropDown.component'
+import { selectCurrentUser } from '../../redux/user/user.selector'
+import { selectCartHidden } from '../../redux/cart/cart.selectors'
+
 import { auth } from '../../firebase/firebase.utils'
 
 import './Header.styles.scss'
 
 const Header = () => {
 
-  const currentUser = useSelector(state => state.user.currentUser)
-  const hidden = useSelector(state => state.cart.hidden)
+  const currentUser = useSelector(selectCurrentUser)
+  const hidden = useSelector(selectCartHidden)
 
   return (
     <div className='header'>

@@ -7,14 +7,16 @@ import Homepage from './pages/homepage/homepage.component'
 import ShopPage from './pages/shop/shop.component'
 import SignInAndSignupPage from './pages/sign-in-and-sign-up/sign-in-and-sign-up.component'
 import Header from './components/Header/Header.component'
+import CheckoutPage from './pages/checkout/checkout.component'
 
+import { selectCurrentUser } from './redux/user/user.selector'
 import { setCurrentUser } from './redux/user/user.actions'
 
 import { auth, createUserProfileDocument } from './firebase/firebase.utils'
 
 function App() {
   // const [currentUser, setCurrentUser] = useState(null)
-  const currentUser = useSelector((state) => state.user.currentUser)
+  const currentUser = useSelector(selectCurrentUser)
   const dispatch = useDispatch()
 
   
@@ -52,7 +54,8 @@ function App() {
       <Header />
       <Switch>
         <Route exact path='/' component={Homepage} />
-        <Route exact path='/shop' component={ShopPage} />
+        <Route path='/shop' component={ShopPage} />
+        <Route exact path='/checkout' component={CheckoutPage} />
         <Route
           exact
           path='/sign-in'
