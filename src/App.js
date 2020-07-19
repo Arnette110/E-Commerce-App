@@ -22,7 +22,7 @@ function App() {
   
   useEffect(
     () => {
-      document.title = 'My e-commerce app'
+      document.title = `Carrot's Corner`
 
       let unsubscribeFromAuth = null
       unsubscribeFromAuth = auth.onAuthStateChanged(async (userAuth) => {
