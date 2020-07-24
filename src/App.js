@@ -11,15 +11,17 @@ import CheckoutPage from './pages/checkout/checkout.component'
 
 import { selectCurrentUser } from './redux/user/user.selector'
 import { setCurrentUser } from './redux/user/user.actions'
+// used to seed firebaseDB
+// import {selectCollectionsForPreview } from './redux/shop/shop.selectors'
 
 import { auth, createUserProfileDocument } from './firebase/firebase.utils'
 
 function App() {
-  // const [currentUser, setCurrentUser] = useState(null)
   const currentUser = useSelector(selectCurrentUser)
+  // used to seed firebaseDB
+  // const collectionsArray = useSelector(selectCollectionsForPreview)
   const dispatch = useDispatch()
 
-  
   useEffect(
     () => {
       document.title = `Carrot's Corner`
@@ -38,6 +40,9 @@ function App() {
             )
           })
         }
+        setCurrentUser(userAuth)
+        // used to seed firebaseDB
+        // addCollectionAndDocuments('collections', collectionsArray.map(({title, items}) => ({title, items})))
       })
 
       return () => {
