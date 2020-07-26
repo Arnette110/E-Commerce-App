@@ -1,12 +1,13 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 
 
 import { ReactComponent as Logo } from '../../assets/original.svg'
 import CartIcon from '../CartIcon/CartIcon.component'
 import CartDropDown from '../CartDropDown/CartDropDown.component'
 import { selectCurrentUser } from '../../redux/user/user.selector'
+import { signOutSuccess } from '../../redux/user/user.actions'
 import { selectCartHidden } from '../../redux/cart/cart.selectors'
 
 import { auth } from '../../firebase/firebase.utils'
@@ -17,6 +18,7 @@ const Header = () => {
 
   const currentUser = useSelector(selectCurrentUser)
   const hidden = useSelector(selectCartHidden)
+  const dispatch = useDispatch()
 
   return (
     <div className='header'>
@@ -31,9 +33,9 @@ const Header = () => {
           CONTACT
         </Link>
         {currentUser ? (
-          <div className='option' onClick={() => auth.signOut()}>
+          <Link className='option' to='/' onClick={() => auth.signOut().then(dispatch(signOutSuccess()))}>
             SIGN OUT
-          </div>
+          </Link>
         ) : (
           <Link className='option' to='/sign-in'>
             SIGN IN
