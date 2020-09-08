@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 
 
@@ -12,7 +11,8 @@ import { selectCartHidden } from '../../redux/cart/cart.selectors'
 
 import { auth } from '../../firebase/firebase.utils'
 
-import './Header.styles.scss'
+// import './Header.styles.scss'
+import { HeaderContainer, LogoContainer, OptionsContainer, OptionLink } from './Header.styles'
 
 const Header = () => {
 
@@ -21,30 +21,26 @@ const Header = () => {
   const dispatch = useDispatch()
 
   return (
-    <div className='header'>
-      <Link className='logo-container' to='/'>
+    <HeaderContainer>
+      <LogoContainer to='/'>
         <Logo className='logo' />
-      </Link>
-      <div className='options'>
-        <Link className='option' to='/shop'>
-          SHOP
-        </Link>
-        <Link className='option' to='/contact'>
-          CONTACT
-        </Link>
+      </LogoContainer>
+      <OptionsContainer>
+        <OptionLink to='/shop'>SHOP</OptionLink>
+        <OptionLink to='/contact'>CONTACT</OptionLink>
         {currentUser ? (
-          <Link className='option' to='/' onClick={() => auth.signOut().then(dispatch(signOutSuccess()))}>
+          <OptionLink
+            to='/'
+            onClick={() => auth.signOut().then(dispatch(signOutSuccess()))}>
             SIGN OUT
-          </Link>
+          </OptionLink>
         ) : (
-          <Link className='option' to='/sign-in'>
-            SIGN IN
-          </Link>
+          <OptionLink to='/sign-in'>SIGN IN</OptionLink>
         )}
         <CartIcon />
-      </div>
+      </OptionsContainer>
       {hidden ? null : <CartDropDown />}
-    </div>
+    </HeaderContainer>
   )
 }
 

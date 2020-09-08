@@ -3,6 +3,7 @@ import { Route, Switch, Redirect } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 
 import './App.scss'
+
 import Homepage from './pages/homepage/homepage.component'
 import ShopPage from './pages/shop/shop.component'
 import SignInAndSignupPage from './pages/sign-in-and-sign-up/sign-in-and-sign-up.component'

@@ -2,34 +2,46 @@ import React from 'react'
 import { useDispatch } from 'react-redux'
 
 import { clearItemFromCart, removeItem, addItem } from '../../redux/cart/cart.actions'
-import './CheckoutItem.styles.scss'
+// import './CheckoutItem.styles.scss'
+import {
+  CheckoutItemContainer,
+  CheckoutItemImageContainer,
+  CheckoutItemImage,
+  NameContainer,
+  QuantityContainer,
+  ValueContainer,
+  ArrowContainer,
+  PriceContainer,
+  RemoveButtonContainer,
+} from './CheckoutItem.styles'
 
 const CheckoutItem = ({cartItem}) => {
 
     const dispatch = useDispatch()
     const {name, imageUrl, price, quantity} = cartItem
     return (
-      <div className='checkout-item'>
-        <div className='image-container'>
-          <img src={imageUrl} alt='item' />
-        </div>
-        <span className='name'>{name}</span>
-        <span className='quantity'>
-          <div className='arrow' onClick={() => dispatch(removeItem(cartItem))}>
-            &#10094;
-          </div>
-          <span className='value'>{quantity}</span>
-          <div className='arrow' onClick={() => dispatch(addItem(cartItem))}>
-            &#10095;
-          </div>
-        </span>
-        <span className='price'>{price}</span>
-        <div
-          className='remove-button'
-          onClick={() => dispatch(clearItemFromCart(cartItem))}>
-          &#10005;
-        </div>
-      </div>
+      <CheckoutItemContainer>
+        <CheckoutItemImageContainer>
+          <CheckoutItemImage src={imageUrl} alt='item' />
+        </CheckoutItemImageContainer>
+        
+          <NameContainer>{name}</NameContainer>
+          <QuantityContainer>
+            <ArrowContainer onClick={() => dispatch(removeItem(cartItem))}>
+              &#10094;
+            </ArrowContainer>
+            <ValueContainer>{quantity}</ValueContainer>
+            <ArrowContainer onClick={() => dispatch(addItem(cartItem))}>
+              &#10095;
+            </ArrowContainer>
+          </QuantityContainer>
+          <PriceContainer>{price}</PriceContainer>
+          <RemoveButtonContainer
+            onClick={() => dispatch(clearItemFromCart(cartItem))}>
+            &#10005;
+          </RemoveButtonContainer>
+        
+      </CheckoutItemContainer>
     )
 }
 

@@ -6,7 +6,8 @@ import { selectCollection } from '../../redux/shop/shop.selectors'
 
 import CollectionItem from '../../components/CollectionItem/CollectionItem.component'
 
-import './collectionpage.styles.scss'
+// import './collectionpage.styles.scss'
+import { CollectionPageContainer, CollectionPageTitle, CollectionPageItems } from './collectionpage.styles'
 
 const CollectionPage = (props) => {
   const collection = useSelector(
@@ -15,14 +16,14 @@ const CollectionPage = (props) => {
   const { title, items } = collection
 
   return (
-    <div className='collection-page'>
-      <h2 className='title'>{title}</h2>
-      <div className='items'>
+    <CollectionPageContainer>
+      <CollectionPageTitle>{title}</CollectionPageTitle>
+      <CollectionPageItems>
         {items.map((item) => (
           <CollectionItem key={item.id} item={item} />
         ))}
-      </div>
-    </div>
+      </CollectionPageItems>
+    </CollectionPageContainer>
   )
 }
 
