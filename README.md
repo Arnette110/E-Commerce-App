@@ -51,6 +51,7 @@ A full-stack e-commerce app built with React/React-Hooks, Redux/Redux-Hooks, Fir
 * Stripe
 * Styled-components/CSS-in-JS
   * (originally styled with SCSS)
+* google-auth-library
 * axios
 
 ## Credits
