@@ -6,7 +6,7 @@ A full-stack e-commerce app built with React/React-Hooks, Redux/Redux-Hooks, Fir
 
 ## URL to application on Heroku
 
-
+https://carrot-corner-e-commerce.herokuapp.com/
 
 ## Instructions
 -   From the landing page navigate to any a department(eg: HATS, JACKETS) to view and purchase available items. 
