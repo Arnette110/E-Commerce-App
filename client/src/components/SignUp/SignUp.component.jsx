@@ -51,7 +51,7 @@ const SignUp = () => {
 
   return (
     <SignUpContainer>
-      <SignUpTitle>i don't have an account</SignUpTitle>
+      <SignUpTitle>I don't have an account</SignUpTitle>
       <span style={{fontSize: '1.6rem'}}>sign up with your email and password</span>
       <form onSubmit={handleSubmit}>
         <FormInput

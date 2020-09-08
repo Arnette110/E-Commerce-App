@@ -9,7 +9,7 @@ export const CollectionItemContainer = styled.div`
   height: 35rem;
   align-items: center;
   position: relative;
-  margin-bottom: 3rem;
+  /* margin-bottom: 3rem; */
 
   &:hover {
     .image {
@@ -23,6 +23,7 @@ export const CollectionItemContainer = styled.div`
 
   @media screen and (max-width: 800px) {
     width: 40vw;
+
     &:hover {
       .image {
         opacity: unset;
@@ -42,6 +43,7 @@ export const ImageContainer = styled.div`
   margin-bottom: 0.5rem;
 
   @media screen and (max-width: 800px) {
+    margin-top: 0.5rem;
     &:hover {
       opacity: unset;
     }
@@ -61,6 +63,7 @@ export const AddButton = styled(CustomButton)`
   @media screen and (max-width: 800px) {
     display: block;
     opacity: 0.9;
+    width: 100%;
     min-width: unset;
     padding: 0 1rem;
   }
@@ -71,12 +74,19 @@ export const CollectionFooterContainer = styled.div`
   display: flex;
   justify-content: space-between;
   font-size: 1.8rem;
+
+  @media screen and (max-width: 800px) {
+    width: 100%;
+    min-width: unset;
+    padding: 1rem 1rem 2rem 1rem;
+    margin-bottom: 1rem;
+  }
 `
 export const NameContainer = styled.span`
-  width: 90%;
+  width: 75%;
   margin-bottom: 1.5rem;
 `
 export const PriceContainer = styled.span`
-  width: 10%;
+  width: 20%;
   text-align: right;
 `

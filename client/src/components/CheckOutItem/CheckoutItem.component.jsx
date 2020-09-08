@@ -7,11 +7,8 @@ import {
   CheckoutItemContainer,
   CheckoutItemImageContainer,
   CheckoutItemImage,
-  NameContainer,
   QuantityContainer,
-  ValueContainer,
-  ArrowContainer,
-  PriceContainer,
+  TextContainer,
   RemoveButtonContainer,
 } from './CheckoutItem.styles'
 
@@ -25,17 +22,17 @@ const CheckoutItem = ({cartItem}) => {
           <CheckoutItemImage src={imageUrl} alt='item' />
         </CheckoutItemImageContainer>
         
-          <NameContainer>{name}</NameContainer>
+          <TextContainer>{name}</TextContainer>
           <QuantityContainer>
-            <ArrowContainer onClick={() => dispatch(removeItem(cartItem))}>
+            <div onClick={() => dispatch(removeItem(cartItem))}>
               &#10094;
-            </ArrowContainer>
-            <ValueContainer>{quantity}</ValueContainer>
-            <ArrowContainer onClick={() => dispatch(addItem(cartItem))}>
+            </div>
+            <span>{quantity}</span>
+            <div onClick={() => dispatch(addItem(cartItem))}>
               &#10095;
-            </ArrowContainer>
+            </div>
           </QuantityContainer>
-          <PriceContainer>{price}</PriceContainer>
+          <TextContainer>{price}</TextContainer>
           <RemoveButtonContainer
             onClick={() => dispatch(clearItemFromCart(cartItem))}>
             &#10005;

@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const MenuItemContainer = styled.div`
   min-width: 30%;
-  height: ${({size}) => (size ? `38rem` : `24rem`)};
+  height: ${({ size }) => (size ? `38rem` : `24rem`)};
   flex: 1 1 auto;
   display: flex;
   align-items: center;
@@ -10,10 +10,6 @@ export const MenuItemContainer = styled.div`
   border: 1px solid black;
   margin: 0 0.75rem 1.5rem;
   overflow: hidden;
-
-  @media screen and (max-width: 800px) {
-    height: 20rem;
-  }
 
   &:hover {
     cursor: pointer;
@@ -34,6 +30,9 @@ export const MenuItemContainer = styled.div`
   &:last-child {
     margin-left: 0.75rem;
   }
+  @media screen and (max-width: 800px) {
+    height: 20rem;
+  }
 `
 export const BackgroundImageContainer = styled.div`
   width: 100%;
@@ -52,6 +51,10 @@ export const ContentContainer = styled.div`
   background-color: white;
   opacity: 0.7;
   position: absolute;
+
+  @media screen and (max-width: 800px) {
+    width: auto;
+  }
 `
 export const ContentTitle = styled.span`
   font-weight: bold;
