@@ -56,7 +56,7 @@ https://carrot-corner-e-commerce.herokuapp.com/
 
 ## Credits
 
-* This project was part of an online course on Udemy taught and designed by Andrei Neagoie and Yihua Zhang.
+* This project was designed by Andrei Neagoie and Yihua Zhang. I do not take credit for the design and layout of this project.
 
 
 ## License
